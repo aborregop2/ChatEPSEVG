@@ -23,3 +23,6 @@ La principal motivació d'aquest projecte és optimitzar la interacció entre el
   - Informació immediata sobre horaris, matrícula i serveis.
   - Resposta a dubtes acadèmics sense desplaçaments.
   - Accés a dades com el menú de la cafeteria.
+
+
+![Diagrama de components](images/components_rd.png)
