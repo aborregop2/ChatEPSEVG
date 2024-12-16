@@ -188,7 +188,7 @@ class AnythingLLMController:
     
     
 ############################################################################################################
-# Example #
+# Using it #
 ############################################################################################################
 
 manager = AnythingLLMController(api_base_url="http://localhost:3001/api", api_key="TPF9FA3-1DR4SQH-Q0KPW92-MS0WYS7")
