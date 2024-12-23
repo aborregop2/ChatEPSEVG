@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatEPSEVG</title>
-    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../logo.png">
 </head>
@@ -14,11 +13,31 @@
     </header>
 
     <main>
-        <div id="chat-container"></div>
-        <div id="user-input">
-            <input type="text" id="message-input" placeholder="Escriu un missatge...">
-            <button id="send-button">Send</button>
+        <div id="login-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div id="chat-interface" style="display: none;">
+            <div id="threads-container">
+                <h3>Chats</h3>
+                <ul id="thread-list"></ul>
+                <button id="new-thread-button">Nou chat</button>
+            </div>
+            <div id="chat-area">
+                <div id="chat-container"></div>
+                <div id="user-input">
+                    <input type="text" id="message-input" placeholder="Escriu un missatge...">
+                    <button id="send-button">Envia</button>
+                </div>
+            </div>
         </div>
     </main>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

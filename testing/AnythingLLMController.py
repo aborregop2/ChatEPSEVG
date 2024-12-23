@@ -63,6 +63,10 @@ class AnythingLLMController:
     def send_message(self, thread_name, content):
         thread_slug = thread_name.lower().replace(" ", "-")
         url = f"{self.api_base_url}/v1/workspace/stic/thread/{thread_slug}/chat"
+
+        print(thread_name)
+        print(thread_slug)
+
         payload = {
             "role": "user",
             "message": content,
@@ -195,19 +199,19 @@ manager = AnythingLLMController(api_base_url="http://localhost:3001/api", api_ke
 
 
 # Create a new thread
-##manager.create_thread("test_thread")
+manager.create_thread("test-thread-1")
 
 # Delete a thread
 ##manager.delete_thread("test_thread")
 
 # List all workspaces
-##manager.list_workspaces()
+manager.list_workspaces()
 
 # Send a message to a thread
-##manager.send_message("test_thread", "Hello, world!")
+manager.send_message("test-thread-1", "Hola")
 
 # Upload data
-##manager.upload_data("~/STIC/chatEPSEVG/menu-bar-epsevg.pdf")
+##manager.upload_data("~/STIC/chatEPSEVG/testing/menu-bar-epsevg.pdf")
 ##manager.upload_data("~/STIC/chatEPSEVG/Manual d'instal·lació dels equips informàtics.pdf")
 
 # Update embeddings
