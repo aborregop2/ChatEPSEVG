@@ -1,9 +1,13 @@
 :root {
     --primary-color: #007BC1;
     --secondary-color: #212529;
-    --transparent-overlay: rgba(0, 0, 0, 0.1);
-    --text-color: #ffffff;
-    --input-bg: #f8f9fa;
+    --accent-color: #FFA500;
+    --background-color: #F0F4F8;
+    --text-color: #333333;
+    --text-color-light: #ffffff;
+    --input-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -13,79 +17,86 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--secondary-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: var(--transition);
 }
 
 header {
     background-color: var(--primary-color);
     padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px var(--transparent-overlay);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
 }
 
 h1 {
     font-size: 2rem;
     font-weight: bold;
+    color: var(--text-color-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#username-display {
+    font-weight: bold;
+    color: var(--text-color-light);
+}
+
+#logout-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+}
+
+#logout-button:hover {
+    background-color: #FF8C00;
+    transform: translateY(-2px);
 }
 
 main {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
 }
 
 #chat-interface {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px); /* Adjust based on your header height */
+    height: calc(100vh - 180px);
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
 }
 
-#threads-container {
-    background-color: var(--transparent-overlay);
-    padding: 1rem;
-    overflow-y: auto;
-}
-
-#thread-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#thread-list li {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#new-thread-button {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    width: 100%;
-}
-
-#new-thread-button:hover {
-    background-color: #0056b3;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 #chat-area {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: var(--transparent-overlay);
+    padding: 1rem;
 }
 
 #chat-container {
@@ -99,66 +110,69 @@ main {
 .message {
     max-width: 70%;
     margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
     border-radius: 20px;
-    animation: fadeIn 0.3s ease-out;
-    white-space: pre-wrap;
+    animation: messageAppear 0.3s ease-out;
+    box-shadow: var(--shadow);
+}
+
+@keyframes messageAppear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .user-message {
     align-self: flex-end;
     background-color: var(--primary-color);
-    margin-left: auto;
+    color: var(--text-color-light);
     border-bottom-right-radius: 0;
 }
 
 .bot-message {
     align-self: flex-start;
-    background-color: var(--secondary-color);
-    margin-right: auto;
+    background-color: var(--accent-color);
+    color: var(--text-color);
     border-bottom-left-radius: 0;
 }
 
 #user-input {
     display: flex;
     padding: 1rem;
-    background-color: var(--secondary-color);
+    background-color: var(--input-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #user-input input {
     flex: 1;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     border: none;
     border-radius: 20px;
     font-size: 1rem;
-    background-color: var(--input-bg);
-    color: var(--secondary-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+#user-input input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 #user-input button {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color-light);
     border: none;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
     margin-left: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    font-weight: bold;
 }
 
 #user-input button:hover {
     background-color: #0056b3;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    transform: translateY(-2px);
 }
 
 .referenced-docs {
@@ -166,38 +180,51 @@ main {
 }
 
 .dropdown-button {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: var(--text-color);
     border: none;
     border-radius: 20px;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    font-weight: bold;
 }
 
 .dropdown-button:hover {
-    background-color: #0056b3;
+    background-color: #FF8C00;
 }
 
 .dropdown-content {
     display: none;
-    background-color: var(--secondary-color);
+    background-color: var(--input-bg);
     border-radius: 8px;
     padding: 1rem;
     margin-top: 0.5rem;
     max-height: 200px;
     overflow-y: auto;
+    box-shadow: var(--shadow);
 }
 
 .dropdown-content.show {
     display: block;
+    animation: dropdownAppear 0.3s ease-out;
+}
+
+@keyframes dropdownAppear {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .doc-reference {
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    padding: 0.8rem;
     border-radius: 8px;
-    background-color: var(--transparent-overlay);
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.doc-reference:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .doc-reference h4 {
@@ -210,16 +237,19 @@ main {
 }
 
 #login-container {
-    background-color: var(--transparent-overlay);
-    border-radius: 8px;
+    background-color: var(--input-bg);
+    border-radius: 10px;
     padding: 2rem;
     max-width: 400px;
     margin: 2rem auto;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease-out;
 }
 
 #login-container h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    color: var(--primary-color);
 }
 
 #login-form {
@@ -229,44 +259,80 @@ main {
 
 #login-form input {
     margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
+    padding: 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+#login-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 193, 0.2);
 }
 
 #login-form button {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color-light);
     border: none;
-    border-radius: 4px;
-    padding: 0.5rem;
+    border-radius: 20px;
+    padding: 0.8rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    font-weight: bold;
 }
 
 #login-form button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
 }
 
 /* Responsive design */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
     #chat-interface {
-        flex-direction: row;
+        height: calc(100vh - 160px);
     }
 
-    #threads-container {
-        width: 250px;
-        height: 100%;
+    .message {
+        max-width: 85%;
     }
 
-    #chat-area {
-        flex: 1;
+    #login-container {
+        margin: 1rem auto;
+        padding: 1.5rem;
     }
 }
 
-@media (max-width: 767px) {
-    #threads-container {
-        max-height: 30vh;
-    }
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 

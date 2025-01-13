@@ -23,7 +23,7 @@ class AnythingLLMController:
             'name': thread_name,
             'slug': slug
         }
-        
+
         try:
             response = requests.post(url, headers=self.headers, data=json.dumps(data))
             if response.status_code == 200:
@@ -195,20 +195,20 @@ class AnythingLLMController:
 # Using it #
 ############################################################################################################
 
-manager = AnythingLLMController(api_base_url="http://localhost:3001/api", api_key="TPF9FA3-1DR4SQH-Q0KPW92-MS0WYS7")
+manager = AnythingLLMController(api_base_url="http://localhost:3001/api", api_key="NMSD9MZ-Y304T0Q-N721EZY-6RBMNYF")
 
 
 # Create a new thread
-manager.create_thread("test-thread-1")
+#manager.create_thread("chat34")
 
 # Delete a thread
 ##manager.delete_thread("test_thread")
 
 # List all workspaces
-manager.list_workspaces()
+#manager.list_workspaces()
 
 # Send a message to a thread
-manager.send_message("test-thread-1", "Hola")
+#manager.send_message("chat1", "Hola")
 
 # Upload data
 ##manager.upload_data("~/STIC/chatEPSEVG/testing/menu-bar-epsevg.pdf")
@@ -219,3 +219,6 @@ manager.send_message("test-thread-1", "Hola")
 
 # Delete all data
 ##manager.delete_all_data()
+
+# Delete a thread
+# manager.delete_thread("chat34") 
