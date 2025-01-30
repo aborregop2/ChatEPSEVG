@@ -2,27 +2,27 @@
 
 ![Logo del projecte](logo.png)
 
-ChatEPSEVG és un projecte desenvolupat amb l'objectiu de millorar la comunicació i el suport als diferents col·lectius de l'Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú (EPSEVG). Aquest chatbot basat en intel·ligència artificial proporciona respostes precises i actualitzades a preguntes fàcils i recurrents, agilitzant els processos de comunicació i reduint la càrrega de treball del personal.
+ChatEPSEVG is a project developed with the aim of improving communication and support for the various groups within the Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú (EPSEVG). This AI-based chatbot provides accurate and up-to-date answers to common and recurring questions, streamlining communication processes and reducing the workload for staff.
 
-## Motivació
-La principal motivació d'aquest projecte és optimitzar la interacció entre el personal docent i investigador (PDI), el personal d'administració i serveis (PAS) i l'estudiantat, millorant l'eficiència i la qualitat dels serveis de suport dins de la universitat.
+## Motivation
+The main motivation behind this project is to optimize interaction between teaching and research staff (PDI), administrative and service staff (PAS), and students, enhancing the efficiency and quality of support services within the university.
 
-### Beneficis per a cada col·lectiu
+### Benefits for Each Group
 
 - **PDI:**
-  - Accés ràpid a recursos acadèmics i administratius.
-  - Resolució de dubtes sobre la gestió de cursos i materials docents.
-  - Estalvi de temps en la resposta a preguntes repetitives.
+  - Quick access to academic and administrative resources.
+  - Resolution of doubts regarding course and teaching material management.
+  - Time savings in responding to repetitive questions.
 
 - **PAS:**
-  - Automatització de consultes administratives.
-  - Millora en la gestió de cites i seguiment de processos.
-  - Reducció de la càrrega en l'atenció al públic.
+  - Automation of administrative inquiries.
+  - Improved management of appointments and process tracking.
+  - Reduced workload in public service.
 
-- **Estudiantat:**
-  - Informació immediata sobre horaris, matrícula i serveis.
-  - Resposta a dubtes acadèmics sense desplaçaments.
-  - Accés a dades com el menú de la cafeteria.
+- **Students:**
+  - Immediate information on schedules, enrollment, and services.
+  - Academic doubts resolved without the need for physical visits.
+  - Access to data such as the cafeteria menu.
 
 
 ![Diagrama de components](images/components_rd.png)
